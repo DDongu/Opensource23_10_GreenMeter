@@ -21,12 +21,12 @@ public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mFirebaseAuth; //파이어베이스 인증
     private DatabaseReference mDatabaseRef; //실시간 데이터베이스
-    private EditText mEtEmail, mEtpwd; //회원가입 입력필드
+    private EditText mEtEmail, mEtpwd, mEtusername, mEtph, mEtnickname; //회원가입 입력필드
     private Button mBtnRegister; //회원가입 버튼
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);ㅅㄷ
         setContentView(R.layout.activity_register);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -34,6 +34,9 @@ public class RegisterActivity extends AppCompatActivity {
 
         mEtEmail = findViewById(R.id.editText_email);
         mEtpwd = findViewById(R.id.editText_password);
+        mEtusername = findViewById(R.id.editText_name);
+        mEtph = findViewById(R.id.editText_phonenumber);
+        mEtnickname = findViewById(R.id.editText_nickname);
         mBtnRegister = findViewById(R.id.button_register);
 
         mBtnRegister.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +45,9 @@ public class RegisterActivity extends AppCompatActivity {
                 // 회원가입 처리 시작
                 String strEmail = mEtEmail.getText().toString();
                 String strPwd = mEtpwd.getText().toString();
-
+                String strUsername = mEtusername.getText().toString();
+                String strPh = mEtph.getText().toString();
+                String strNicknmae = mEtnickname.getText().toString();
 
                 //firebase Auth 지노행
                 mFirebaseAuth.createUserWithEmailAndPassword(strEmail, strPwd).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
@@ -54,7 +59,10 @@ public class RegisterActivity extends AppCompatActivity {
                             account.setIdToken(firebaseUser.getUid());
                             account.setEmailId(firebaseUser.getEmail());
                             account.setPassword(strPwd);
-                            
+                            account.setUsername(strUsername);
+                            account.setPh(strPh);
+                            account.setNickname(strNicknmae);
+
                             // setvale : datebase에 inset(삽입) 입력
                             mDatabaseRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
 
@@ -63,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this, "회원가입에 실패하셨습니다.", Toast.LENGTH_SHORT).show();
 
                         }
-                        
+
                     }
                 });
             }
