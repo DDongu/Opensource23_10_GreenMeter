@@ -1,3 +1,7 @@
+/*
+ * Timeline Main
+ * */
+
 package com.example.greenmeter;
 
 import android.os.Bundle;

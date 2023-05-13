@@ -1,21 +1,19 @@
+
+/*
+* 네비게이션바 Activity
+* */
+
 package com.example.greenmeter;
+
+import android.os.Bundle;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-
-import java.sql.Time;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         setFrag(0); // 첫 프래그먼트 화면 지정
     }
 
-    //프래그먼트 교체가 이러는 곳
+    //프래그먼트 교체가 일어나는 곳
     private void setFrag(int n) {
         fm = getSupportFragmentManager();
         ft = fm.beginTransaction();
