@@ -1,8 +1,8 @@
-/*
- * Timeline Main
- * */
-
 package com.example.greenmeter;
+
+/**
+ * Timeline Main
+ **/
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

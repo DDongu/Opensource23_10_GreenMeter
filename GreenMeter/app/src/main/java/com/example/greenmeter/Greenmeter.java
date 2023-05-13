@@ -1,8 +1,8 @@
-/*
- * Greenmeter Main
- * */
-
 package com.example.greenmeter;
+
+/**
+ * Greenmeter Main
+ **/
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

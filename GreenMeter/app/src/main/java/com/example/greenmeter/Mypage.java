@@ -1,8 +1,8 @@
-/*
- * Mypage Main
- * */
-
 package com.example.greenmeter;
+
+/**
+ * Mypage Main
+ **/
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

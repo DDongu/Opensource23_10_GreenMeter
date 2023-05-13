@@ -1,8 +1,8 @@
-/*
- * Lanking Main
- * */
-
 package com.example.greenmeter;
+
+/**
+ * Lanking Main
+ **/
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
