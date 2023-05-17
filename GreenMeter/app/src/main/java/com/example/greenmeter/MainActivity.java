@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.tab_greenmeter:
+
                         setFrag(0);
                         break;
                     case R.id.tab_timeline:

@@ -1,4 +1,4 @@
-package com.example.greenmeter;
+package com.example.greenmeter.database;
 
 /**
  * 사용자 랭크 모델 클래스

@@ -1,4 +1,4 @@
-package com.example.greenmeter;
+package com.example.greenmeter.database;
 
 import java.util.Date;
 
