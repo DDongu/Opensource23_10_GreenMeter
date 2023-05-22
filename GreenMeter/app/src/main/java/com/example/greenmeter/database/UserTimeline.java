@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class UserTimeline {
     private String idToken;         // Firebase Uid (고유 토큰정보)
-    private Date recode_date;       // 기록날짜
+    private String recode_date;       // 기록날짜
     private Integer mv_trans;       // 이동수단
     private Double mv_distance;     // 이동거리
     private Double mv_time;         // 이동시간
@@ -22,11 +22,11 @@ public class UserTimeline {
         this.idToken = idToken;
     }
 
-    public Date getRecode_date() {
+    public String getRecode_date() {
         return recode_date;
     }
 
-    public void setRecode_date(Date recode_date) {
+    public void setRecode_date(String recode_date) {
         this.recode_date = recode_date;
     }
 

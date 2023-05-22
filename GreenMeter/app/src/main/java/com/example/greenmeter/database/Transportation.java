@@ -7,8 +7,10 @@ public class Transportation {
     public void setType_trans(String type_trans) {
         this.type_trans = type_trans;
     }
-
     public void setCarbonEm(Double carbonEm) {
         this.carbonEm = carbonEm;
     }
+
+
+
 }

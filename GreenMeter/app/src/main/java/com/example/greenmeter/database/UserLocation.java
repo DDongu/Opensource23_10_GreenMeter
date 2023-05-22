@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class UserLocation {
     private String idToken;         // Firebase Uid (고유 토큰정보)
-    private Date recode_time;       // 기록시간
+    private String recode_time;       // 기록시간
     private Double Lat;             // 위도
     private Double Lng;             // 경도
     private String type_trans;      // 이동수단
@@ -17,11 +17,11 @@ public class UserLocation {
         this.idToken = idToken;
     }
 
-    public Date getRecode_time() {
+    public String getRecode_time() {
         return recode_time;
     }
 
-    public void setRecode_time(Date recode_time) {
+    public void setRecode_time(String recode_time) {
         this.recode_time = recode_time;
     }
 
