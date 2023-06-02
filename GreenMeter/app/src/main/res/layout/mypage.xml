@@ -1,16 +1,206 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
 
-    <TextView
+    <LinearLayout
+        android:layout_marginTop="230px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="마이페이지 화면"
-        android:textSize="40sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="242dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="350px"
+            android:orientation="horizontal"
+            android:background="@drawable/timeline_detail">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="230px"
+                android:layout_height="230px"
+                android:layout_marginLeft="100px"
+                android:layout_marginTop="60px"
+                android:src="@drawable/yurim"
+                app:civ_border_color="#E5E5E6"
+                app:civ_border_overlay="true"
+                app:civ_border_width="2dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="50px">
+
+                <TextView
+                    android:id="@+id/name_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="50px"
+                    android:layout_marginTop="90px"
+                    android:text="이름" />
+
+                <TextView
+                    android:id="@+id/nikname_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="50px"
+                    android:layout_marginTop="10px"
+                    android:text="닉네임" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="350px"
+            android:orientation="horizontal"
+            android:background="@drawable/timeline_detail">
+
+
+            <LinearLayout
+                android:layout_width="380px"
+                android:layout_height="250px"
+                android:orientation="vertical"
+                android:elevation="10dp"
+                android:layout_marginLeft="100px"
+                android:layout_marginTop="45px"
+                android:background="@drawable/lanking_bottom_card">
+
+                <TextView
+                    android:id="@+id/my_co2_text"
+                    android:layout_width="250px"
+                    android:layout_height="80px"
+                    android:text="누적 탄소량"
+                    android:layout_marginTop="30px"
+                    android:textSize="50px"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:id="@+id/my_co2"
+                        android:layout_width="90px"
+                        android:layout_height="100px"
+                        android:textStyle="bold"
+                        android:textSize="70px"
+                        android:text="00" />
+
+                    <TextView
+                        android:id="@+id/my_gkm_text"
+                        android:layout_width="20px"
+                        android:layout_height="50px"
+                        android:layout_weight="1"
+                        android:text="g/km" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="380px"
+                android:layout_height="250px"
+                android:orientation="vertical"
+                android:layout_marginLeft="100px"
+                android:layout_marginTop="45px"
+                android:elevation="10dp"
+                android:background="@drawable/lanking_bottom_card">
+
+                <TextView
+                    android:id="@+id/my_lanking_text"
+                    android:layout_width="200px"
+                    android:layout_height="80px"
+                    android:text="나의 랭킹"
+                    android:layout_marginTop="30px"
+                    android:textSize="50px"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"/>
+                <LinearLayout
+                    android:layout_width="120px"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:id="@+id/my_lanking"
+                        android:layout_width="90px"
+                        android:layout_height="100px"
+                        android:textStyle="bold"
+                        android:textSize="70px"
+                        android:text="00" />
+
+                    <TextView
+                        android:id="@+id/text1"
+                        android:layout_width="10px"
+                        android:layout_height="50px"
+                        android:layout_weight="1"
+                        android:text="위" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200px"
+            android:orientation="vertical"
+            android:background="@drawable/timeline_detail">
+
+
+            <TextView
+                android:id="@+id/change_personal_information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="50px"
+                android:layout_marginTop="60px"
+                android:textStyle="bold"
+                android:layout_marginLeft="40px"
+                android:text="본인 정보 변경" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200px"
+            android:orientation="vertical"
+            android:background="@drawable/timeline_detail">
+
+            <TextView
+                android:id="@+id/logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="50px"
+                android:layout_marginTop="60px"
+                android:layout_marginLeft="40px"
+                android:textStyle="bold"
+                android:text="로그아웃" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200px"
+            android:textSize="70px"
+            android:textStyle="bold"
+            android:orientation="vertical"
+            android:background="@drawable/timeline_detail">
+
+            <TextView
+                android:id="@+id/delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="50px"
+                android:layout_marginTop="60px"
+                android:layout_marginLeft="40px"
+                android:textStyle="bold"
+                android:textColor="#BF4B4B"
+                android:text="계정 삭제하기" />
+
+        </LinearLayout>
+
+
+        </LinearLayout>
+</LinearLayout>

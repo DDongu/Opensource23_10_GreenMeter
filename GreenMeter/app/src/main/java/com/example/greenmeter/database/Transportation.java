@@ -10,7 +10,4 @@ public class Transportation {
     public void setCarbonEm(Double carbonEm) {
         this.carbonEm = carbonEm;
     }
-
-
-
 }

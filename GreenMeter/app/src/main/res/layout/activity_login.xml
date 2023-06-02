@@ -1,35 +1,116 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:layout_gravity="center"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/email_edittext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:inputType="textEmailAddress"/>
 
-    <EditText
-        android:id="@+id/password_edittext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="textPassword"/>
+    <LinearLayout
+        android:layout_width="1080px"
+        android:layout_height="500px"
+        android:layout_gravity="center"
+        android:layout_marginTop="300px"
+        android:layout_marginLeft="30px"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="로그인"/>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="81dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/logo" />
 
-    <Button
-        android:id="@+id/register_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="회원가입"/>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="800px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="20px"
+            android:text="Green Meter"
+            android:textColor="#000000"
+            android:textSize="120px"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="106dp"
+            tools:layout_editor_absoluteY="139dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="950px"
+        android:layout_height="500px"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <EditText
+            android:id="@+id/email_edittext"
+            android:layout_width="950px"
+            android:layout_height="120px"
+            android:background="#F2F2F2"
+            android:hint="아이디 또는 이메일을 입력해주세요"
+            android:inputType="textEmailAddress"
+            android:padding="30px"
+            android:textSize="40px"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="278dp" />
+
+        <EditText
+            android:id="@+id/password_edittext"
+            android:layout_width="950px"
+            android:layout_height="120px"
+            android:background="#F2F2F2"
+            android:layout_marginTop="35px"
+            android:hint="비밀번호를 입력해주세요"
+            android:inputType="textPassword"
+            android:padding="30px"
+            android:textSize="40px"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="342dp" />
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="950px"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#78AFAF"
+            android:text="로그인"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="50px"
+            android:textSize="40px"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="402dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="600px"
+        android:layout_height="100px"
+        android:orientation="horizontal"
+        android:layout_marginTop="400px"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아직 회원이 아니신가요?"
+            android:textSize="40px"
+            android:layout_gravity="center"
+            tools:layout_editor_absoluteX="83dp"
+            tools:layout_editor_absoluteY="651dp" />
+
+        <Button
+            android:id="@+id/go_register_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="0px"
+            android:text="회원가입"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="#000000"
+            android:textSize="44px"
+            android:background="#00ff0000"
+            tools:layout_editor_absoluteX="192dp"
+            tools:layout_editor_absoluteY="649dp" />
+    </LinearLayout>
 
 </LinearLayout>
-
-

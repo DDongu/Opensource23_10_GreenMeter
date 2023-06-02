@@ -1,11 +1,43 @@
+<!-- greenmeter.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
+    <!-- 경로 표시 버튼 -->
+
+    <!-- 경로 텍스트뷰 -->
+
+    <EditText
+        android:id="@+id/destination_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="목적지를 입력하세요" />
+
+    <Button
+        android:id="@+id/show_route_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="경로 보기" />
+
+    <TextView
+        android:id="@+id/route_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textAppearance="?android:textAppearanceMedium" />
+
+    <!-- 지도 뷰 -->
+
+    <!-- 목적지 입력 -->
     <com.google.android.gms.maps.MapView
         android:id="@+id/map_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="590dp"
+        android:layout_weight="30" />
 
 </LinearLayout>

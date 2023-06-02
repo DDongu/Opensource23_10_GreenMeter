@@ -1,0 +1,408 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이동"
+        android:layout_marginTop="230px"
+        android:layout_marginLeft="40px"
+        android:textStyle="bold"
+        android:textSize="65px"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:orientation="vertical"
+        android:background="@drawable/timeline_detail">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130px"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/walk_black"
+                android:layout_width="100px"
+                android:layout_height="120px"
+                android:layout_marginLeft="40px"
+                android:layout_marginTop="15px"
+                app:srcCompat="@drawable/walk_black" />
+
+            <TextView
+                android:id="@+id/walk_text"
+                android:layout_width="200px"
+                android:layout_height="150px"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="5px"
+                android:text="보도"
+                android:textSize="70px"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300px"
+            android:layout_height="90px"
+            android:layout_marginTop="10px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/walk_co2"
+                android:layout_width="1px"
+                android:layout_height="80px"
+                android:layout_marginLeft="70px"
+                android:layout_weight="1"
+                android:text="00"
+                android:textSize="70px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/walk_gkm_text"
+                android:layout_width="30px"
+                android:layout_height="50px"
+                android:layout_weight="1"
+                android:text="g/km" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="200px"
+            android:layout_height="80px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/walk_km"
+                android:layout_width="30px"
+                android:layout_height="80px"
+                android:layout_marginLeft="70px"
+                android:layout_weight="1"
+                android:text="18"
+                android:textSize="50px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/walk_km_text"
+                android:layout_width="30px"
+                android:layout_height="50px"
+                android:layout_weight="1"
+                android:text="km" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/walk_time"
+                android:layout_width="100px"
+                android:layout_height="60px"
+                android:layout_marginLeft="70px"
+                android:layout_weight="1"
+                android:text="6시간 50분"
+                android:textSize="40px"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:orientation="vertical"
+        android:background="@drawable/timeline_detail">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130px"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/car_black"
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:layout_marginLeft="40px"
+                android:layout_marginTop="25px"
+                app:srcCompat="@drawable/car_black" />
+
+            <TextView
+                android:id="@+id/car"
+                android:layout_width="300px"
+                android:layout_height="100px"
+                android:layout_marginTop="20px"
+                android:text="승용차"
+                android:layout_marginLeft="10px"
+                android:textSize="70px"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300px"
+            android:layout_height="90px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/car_co2"
+                android:layout_width="1px"
+                android:layout_height="80px"
+                android:layout_marginLeft="70px"
+                android:layout_weight="1"
+                android:text="00"
+                android:textSize="70px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/car_gkm_text"
+                android:layout_width="30px"
+                android:layout_height="50px"
+                android:layout_weight="1"
+                android:text="g/km" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="200px"
+            android:layout_height="80px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/car_km"
+                android:layout_width="30px"
+                android:layout_height="80px"
+                android:layout_marginLeft="70px"
+                android:layout_weight="1"
+                android:text="18"
+                android:textSize="50px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/car_km_text"
+                android:layout_width="30px"
+                android:layout_height="50px"
+                android:layout_weight="1"
+                android:text="km" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="350px"
+            android:layout_height="100px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/car_time"
+                android:layout_width="100px"
+                android:layout_height="80px"
+                android:layout_marginLeft="70px"
+                android:layout_weight="1"
+                android:text="6시간 50분"
+                android:textSize="40px"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:orientation="vertical"
+        android:background="@drawable/timeline_detail">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130px"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/moter_black"
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:layout_marginLeft="40px"
+                android:layout_marginTop="30px"
+                app:srcCompat="@drawable/motorcycle_black" />
+
+            <TextView
+                android:id="@+id/moter"
+                android:layout_width="350px"
+                android:layout_height="100px"
+                android:layout_marginTop="25px"
+                android:layout_marginLeft="15px"
+                android:text="모터사이클"
+                android:textSize="70px"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300px"
+            android:layout_height="90px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/moter_co2"
+                android:layout_width="1px"
+                android:layout_height="80px"
+                android:layout_marginLeft="70px"
+                android:layout_weight="1"
+                android:text="00"
+                android:textSize="70px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/moter_gkm_text"
+                android:layout_width="30px"
+                android:layout_height="50px"
+                android:layout_weight="1"
+                android:text="g/km" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="200px"
+            android:layout_height="80px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/moter_km"
+                android:layout_width="30px"
+                android:layout_height="80px"
+                android:layout_marginLeft="70px"
+                android:layout_weight="1"
+                android:text="18"
+                android:textSize="50px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/moter_km_text"
+                android:layout_width="30px"
+                android:layout_height="50px"
+                android:layout_weight="1"
+                android:text="km" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="350px"
+            android:layout_height="100px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/moter_time"
+                android:layout_width="100px"
+                android:layout_height="80px"
+                android:layout_marginLeft="70px"
+                android:layout_weight="1"
+                android:text="6시간 50분"
+                android:textSize="40px"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:orientation="vertical"
+        android:background="@drawable/timeline_detail">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130px"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/bus_black"
+                android:layout_width="90px"
+                android:layout_height="90px"
+                android:layout_marginLeft="40px"
+                android:layout_marginTop="25px"
+                app:srcCompat="@drawable/bus_black" />
+
+            <TextView
+                android:id="@+id/bus"
+                android:layout_width="400px"
+                android:layout_height="100px"
+                android:layout_marginTop="20px"
+                android:layout_marginLeft="10px"
+                android:text="대중교통"
+                android:textSize="70px"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300px"
+            android:layout_height="100px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/bus_co2"
+                android:layout_width="1px"
+                android:layout_height="80px"
+                android:layout_marginLeft="70px"
+                android:layout_weight="1"
+                android:text="00"
+                android:textSize="70px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bus_gkm_text"
+                android:layout_width="30px"
+                android:layout_height="50px"
+                android:layout_weight="1"
+                android:text="g/km" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="200px"
+            android:layout_height="80px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/bus_km"
+                android:layout_width="30px"
+                android:layout_height="80px"
+                android:layout_marginLeft="70px"
+                android:layout_weight="1"
+                android:text="18"
+                android:textSize="50px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bus_km_text"
+                android:layout_width="30px"
+                android:layout_height="50px"
+                android:layout_weight="1"
+                android:text="km" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="350px"
+            android:layout_height="100px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/bus_time"
+                android:layout_width="100px"
+                android:layout_height="80px"
+                android:layout_marginLeft="70px"
+                android:layout_weight="1"
+                android:text="6시간 50분"
+                android:textSize="40px"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

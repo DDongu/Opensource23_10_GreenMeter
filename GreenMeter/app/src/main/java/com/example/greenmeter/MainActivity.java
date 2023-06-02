@@ -30,12 +30,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottomNavi);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        bottomNavigationView.setOnItemSelectedListener(menuItem -> {
                 switch (menuItem.getItemId()) {
                     case R.id.tab_greenmeter:
-
                         setFrag(0);
                         break;
                     case R.id.tab_timeline:
@@ -49,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 return true;
-            }
         });
 
         greenmeter = new Greenmeter();

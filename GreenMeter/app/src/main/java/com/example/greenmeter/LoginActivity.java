@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        Button btn_register = findViewById(R.id.register_button);
+        Button btn_register = findViewById(R.id.go_register_button);
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -33,11 +33,11 @@ public class RegisterActivity extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("GreenMeter");
 
-        mEtEmail = findViewById(R.id.editText_email);
-        mEtpwd = findViewById(R.id.editText_password);
-        mEtusername = findViewById(R.id.editText_name);
-        mEtph = findViewById(R.id.editText_phonenumber);
-        mEtnickname = findViewById(R.id.editText_nickname);
+        mEtEmail = findViewById(R.id.email_text_edit);
+        mEtpwd = findViewById(R.id.password_text_edit);
+        mEtusername = findViewById(R.id.name_text_edit);
+        mEtph = findViewById(R.id.phonenumber_text_edit);
+        mEtnickname = findViewById(R.id.nickname_text_edit);
         mBtnRegister = findViewById(R.id.button_register);
 
         mBtnRegister.setOnClickListener(new View.OnClickListener() {

@@ -1,47 +1,207 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:layout_gravity="center"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editText_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:inputType="textEmailAddress"/>
+    <LinearLayout
+        android:layout_width="1000px"
+        android:layout_height="120px"
+        android:orientation="horizontal"
+        android:layout_marginLeft="60px"
+        android:layout_marginTop="120px">
 
-    <EditText
-        android:id="@+id/editText_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="textPassword"/>
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="120px"
+            android:layout_height="120px"
 
-    <EditText
-        android:id="@+id/editText_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Name"
-        android:inputType="text"/>
+            android:background="#00ff0000"
+            app:srcCompat="@drawable/arrow_back_fill0_wght400_grad0_opsz48" />
 
-    <EditText
-        android:id="@+id/editText_phonenumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Phone Number"
-        android:inputType="phone"/>
+        <TextView
+            android:id="@+id/signup_text"
+            android:layout_width="300px"
+            android:layout_height="70px"
+            android:text="회원가입"
+            android:textColor="#000000"
+            android:textSize="50px"
+            android:textStyle="bold"
+            android:layout_marginTop="20px"
+            tools:layout_editor_absoluteX="52dp"
+            tools:layout_editor_absoluteY="56dp" />
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/editText_nickname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nickname"
-        android:inputType="text"/>
+    <LinearLayout
+        android:layout_width="1000px"
+        android:layout_height="200px"
+        android:layout_marginLeft="60px"
+        android:layout_marginTop="100px"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름"
+            android:textColor="#191919"
+            android:textSize="40px"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="124dp" />
+
+        <EditText
+            android:id="@+id/name_text_edit"
+            android:layout_width="950px"
+            android:layout_height="120px"
+            android:layout_marginTop="25px"
+            android:background="#F2F2F2"
+            android:hint="이름"
+            android:inputType="text"
+            android:padding="30px"
+            android:textSize="40px"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="155dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="1000px"
+        android:layout_height="200px"
+        android:layout_marginLeft="60px"
+        android:layout_marginTop="50px"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="닉네임"
+            android:textColor="#191919"
+            android:textSize="40px"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="218dp" />
+
+        <EditText
+            android:id="@+id/nickname_text_edit"
+            android:layout_width="950px"
+            android:layout_height="120px"
+            android:layout_marginTop="25px"
+            android:background="#F2F2F2"
+            android:hint="이메일"
+            android:inputType="textEmailAddress"
+            android:padding="30px"
+            android:textSize="40px"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="342dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="1000px"
+        android:layout_height="200px"
+        android:orientation="vertical"
+        android:layout_marginLeft="60px"
+        android:layout_marginTop="50px">
+
+        <TextView
+            android:id="@+id/email_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이메일"
+            android:textColor="#191919"
+            android:textSize="40px"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="310dp" />
+
+        <EditText
+            android:id="@+id/email_text_edit"
+            android:layout_width="950px"
+            android:layout_height="120px"
+            android:layout_marginTop="25px"
+            android:background="#F2F2F2"
+            android:hint="10글자 제한"
+            android:inputType="text"
+            android:padding="30px"
+            android:textSize="40px"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="249dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="1000px"
+        android:layout_height="200px"
+        android:layout_marginLeft="60px"
+        android:layout_marginTop="50px"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/passward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호"
+            android:textColor="#191919"
+            android:textSize="40px"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="408dp" />
+
+        <EditText
+            android:id="@+id/password_text_edit"
+            android:layout_width="950px"
+            android:layout_height="120px"
+            android:layout_marginTop="25px"
+            android:background="#F2F2F2"
+            android:hint="비밀번호"
+            android:inputType="textPassword"
+            android:padding="30px"
+            android:textSize="40px"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="438dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="1000px"
+        android:layout_height="200px"
+        android:orientation="vertical"
+        android:layout_marginLeft="60px"
+        android:layout_marginTop="50px">
+
+        <TextView
+            android:id="@+id/phonenumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="연락처"
+            android:textColor="#191919"
+            android:textSize="40px"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="506dp" />
+
+        <EditText
+            android:id="@+id/phonenumber_text_edit"
+            android:layout_width="950px"
+            android:layout_height="120px"
+            android:background="#F2F2F2"
+            android:layout_marginTop="25px"
+            android:hint="'-'를 제외한 휴대폰 번호"
+            android:inputType="phone"
+            android:padding="30px"
+            android:textSize="40px"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="536dp" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/button_register"
-        android:layout_width="match_parent"
+        android:layout_width="950px"
         android:layout_height="wrap_content"
-        android:text="가입"/>
+        android:background="#78AFAF"
+        android:text="가입"
+        android:gravity="center"
+        android:layout_marginTop="100px"
+        android:layout_marginLeft="60px"
+        android:textColor="#FFFFFF"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="631dp" />
+
 </LinearLayout>

@@ -1,16 +1,369 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="랭킹조회 화면"
-        android:textSize="40sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="242dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="230px">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:orientation="vertical"
+            android:background="@drawable/timeline_detail">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lanking_1"
+                    android:layout_width="130px"
+                    android:layout_height="wrap_content"
+                    android:textSize="70px"
+                    android:textStyle="bold"
+                    android:textColor="#FFCE00"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginTop="20px"
+                    android:text="1위" />
+
+                <TextView
+                    android:id="@+id/nickname1"
+                    android:layout_width="210px"
+                    android:layout_height="wrap_content"
+                    android:textSize="70px"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20px"
+                    android:text="뱅뱅숑" />
+
+                <TextView
+                    android:id="@+id/nim_text1"
+                    android:layout_width="50px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:text="님" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="60px"
+                    android:layout_height="60px"
+                    android:layout_marginLeft="540px"
+                    android:layout_marginTop="50px"
+                    app:srcCompat="@drawable/arrow_forward_ios_fill0_wght400_grad0_opsz48" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="400px"
+                android:layout_height="150px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/nickname1_co2"
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:textSize="60px"
+                    android:layout_marginLeft="40px"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:text="11,609" />
+
+                <TextView
+                    android:id="@+id/gkm_text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="g/km" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:orientation="vertical"
+            android:background="@drawable/timeline_detail">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lanking_2"
+                    android:layout_width="130px"
+                    android:layout_height="wrap_content"
+                    android:textSize="70px"
+                    android:textStyle="bold"
+                    android:textColor="#D1CFC8"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginTop="20px"
+                    android:text="2위" />
+
+                <TextView
+                    android:id="@+id/nickname2"
+                    android:layout_width="210px"
+                    android:layout_height="wrap_content"
+                    android:textSize="70px"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20px"
+                    android:text="뱅뱅숑" />
+
+                <TextView
+                    android:id="@+id/nim_text2"
+                    android:layout_width="50px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:text="님" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="60px"
+                    android:layout_height="60px"
+                    android:layout_marginLeft="540px"
+                    android:layout_marginTop="50px"
+                    app:srcCompat="@drawable/arrow_forward_ios_fill0_wght400_grad0_opsz48" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="400px"
+                android:layout_height="100px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/nickname2_co2"
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:textSize="60px"
+                    android:layout_marginLeft="40px"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:text="11,609" />
+
+                <TextView
+                    android:id="@+id/gkm_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="g/km" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:orientation="vertical"
+            android:background="@drawable/timeline_detail">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lanking_3"
+                    android:layout_width="130px"
+                    android:layout_height="wrap_content"
+                    android:textSize="70px"
+                    android:textStyle="bold"
+                    android:textColor="#B28B00"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginTop="20px"
+                    android:text="3위" />
+
+                <TextView
+                    android:id="@+id/nickname3"
+                    android:layout_width="210px"
+                    android:layout_height="wrap_content"
+                    android:textSize="70px"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20px"
+                    android:text="뱅뱅숑" />
+
+                <TextView
+                    android:id="@+id/nim_text3"
+                    android:layout_width="50px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:text="님" />
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="60px"
+                    android:layout_height="60px"
+                    android:layout_marginLeft="540px"
+                    android:layout_marginTop="50px"
+                    app:srcCompat="@drawable/arrow_forward_ios_fill0_wght400_grad0_opsz48" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="400px"
+                android:layout_height="100px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/nickname3_co2"
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:textSize="60px"
+                    android:layout_marginLeft="40px"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:text="11,609" />
+
+                <TextView
+                    android:id="@+id/gkm_text3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="g/km" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:orientation="vertical"
+            android:background="@drawable/timeline_detail">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lanking_4"
+                    android:layout_width="130px"
+                    android:layout_height="wrap_content"
+                    android:textSize="70px"
+                    android:textStyle="bold"
+                    android:textColor="#78AFAF"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginTop="20px"
+                    android:text="4위" />
+
+                <TextView
+                    android:id="@+id/nickname4"
+                    android:layout_width="210px"
+                    android:layout_height="wrap_content"
+                    android:textSize="70px"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20px"
+                    android:text="뱅뱅숑" />
+
+                <TextView
+                    android:id="@+id/nim_text4"
+                    android:layout_width="50px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:text="님" />
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="60px"
+                    android:layout_height="60px"
+                    android:layout_marginLeft="540px"
+                    android:layout_marginTop="50px"
+                    app:srcCompat="@drawable/arrow_forward_ios_fill0_wght400_grad0_opsz48" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="400px"
+                android:layout_height="100px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/nickname4_co2"
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:textSize="60px"
+                    android:layout_marginLeft="40px"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:text="11,609" />
+
+                <TextView
+                    android:id="@+id/gkm_text4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="g/km" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:orientation="vertical"
+            android:background="@drawable/timeline_detail">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lanking_5"
+                    android:layout_width="130px"
+                    android:layout_height="wrap_content"
+                    android:textSize="70px"
+                    android:textStyle="bold"
+                    android:textColor="#78AFAF"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginTop="20px"
+                    android:text="5위" />
+
+                <TextView
+                    android:id="@+id/nickname5"
+                    android:layout_width="210px"
+                    android:layout_height="wrap_content"
+                    android:textSize="70px"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20px"
+                    android:text="뱅뱅숑" />
+
+                <TextView
+                    android:id="@+id/nim_text5"
+                    android:layout_width="50px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:text="님" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="60px"
+                    android:layout_height="60px"
+                    android:layout_marginLeft="540px"
+                    android:layout_marginTop="50px"
+                    app:srcCompat="@drawable/arrow_forward_ios_fill0_wght400_grad0_opsz48" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="400px"
+                android:layout_height="100px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/nickname5_co2"
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:textSize="60px"
+                    android:layout_marginLeft="40px"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:text="11,609" />
+
+                <TextView
+                    android:id="@+id/gkm_text5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="g/km" />
+            </LinearLayout>
+
+        </LinearLayout>
+</LinearLayout>
+
+    </LinearLayout>
