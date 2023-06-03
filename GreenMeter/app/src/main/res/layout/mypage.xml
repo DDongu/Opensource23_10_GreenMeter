@@ -2,12 +2,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_marginTop="230px"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_weight="0">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="마이페이지"
+            android:textSize="60px"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="0"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,7 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="50px"
+                    android:textSize="40px"
                     android:layout_marginTop="90px"
                     android:text="이름" />
 
@@ -46,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="50px"
+                    android:textSize="40px"
                     android:layout_marginTop="10px"
                     android:text="닉네임" />
             </LinearLayout>
@@ -56,22 +73,20 @@
             android:layout_width="match_parent"
             android:layout_height="350px"
             android:orientation="horizontal"
-            android:background="@drawable/timeline_detail">
-
-
+            android:background="@drawable/timeline_detail"
+            android:gravity="center">
             <LinearLayout
-                android:layout_width="380px"
+                android:layout_width="450px"
                 android:layout_height="250px"
                 android:orientation="vertical"
                 android:elevation="10dp"
-                android:layout_marginLeft="100px"
-                android:layout_marginTop="45px"
+                android:layout_marginHorizontal="30px"
                 android:background="@drawable/lanking_bottom_card">
 
                 <TextView
                     android:id="@+id/my_co2_text"
-                    android:layout_width="250px"
-                    android:layout_height="80px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="누적 탄소량"
                     android:layout_marginTop="30px"
                     android:textSize="50px"
@@ -79,128 +94,123 @@
                     android:textStyle="bold"/>
 
                 <LinearLayout
-                    android:layout_width="180px"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120px"
                     android:orientation="horizontal"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:gravity="center">
 
                     <TextView
                         android:id="@+id/my_co2"
-                        android:layout_width="90px"
-                        android:layout_height="100px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:textSize="70px"
+                        android:textSize="45px"
                         android:text="00" />
 
                     <TextView
                         android:id="@+id/my_gkm_text"
-                        android:layout_width="20px"
-                        android:layout_height="50px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="g/km" />
+                        android:text=" g/km" />
                 </LinearLayout>
 
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="380px"
+                android:layout_width="450px"
                 android:layout_height="250px"
                 android:orientation="vertical"
-                android:layout_marginLeft="100px"
-                android:layout_marginTop="45px"
                 android:elevation="10dp"
+                android:layout_marginHorizontal="30px"
                 android:background="@drawable/lanking_bottom_card">
 
                 <TextView
                     android:id="@+id/my_lanking_text"
-                    android:layout_width="200px"
-                    android:layout_height="80px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="나의 랭킹"
                     android:layout_marginTop="30px"
                     android:textSize="50px"
                     android:layout_gravity="center"
                     android:textStyle="bold"/>
                 <LinearLayout
-                    android:layout_width="120px"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120px"
                     android:orientation="horizontal"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:gravity="center">
 
                     <TextView
                         android:id="@+id/my_lanking"
-                        android:layout_width="90px"
-                        android:layout_height="100px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:textSize="70px"
+                        android:textSize="45px"
                         android:text="00" />
 
                     <TextView
                         android:id="@+id/text1"
-                        android:layout_width="10px"
-                        android:layout_height="50px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="위" />
+                        android:text=" 위" />
                 </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200px"
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
             android:background="@drawable/timeline_detail">
 
-
-            <TextView
-                android:id="@+id/change_personal_information"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="50px"
-                android:layout_marginTop="60px"
-                android:textStyle="bold"
-                android:layout_marginLeft="40px"
-                android:text="본인 정보 변경" />
-        </LinearLayout>
-        <LinearLayout
+            <Button
+            android:id="@+id/my_info_edit_btn"
             android:layout_width="match_parent"
-            android:layout_height="200px"
-            android:orientation="vertical"
-            android:background="@drawable/timeline_detail">
-
-            <TextView
-                android:id="@+id/logout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="50px"
-                android:layout_marginTop="60px"
-                android:layout_marginLeft="40px"
-                android:textStyle="bold"
-                android:text="로그아웃" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200px"
-            android:textSize="70px"
+            android:layout_height="150px"
+            android:textSize="40px"
+            android:layout_marginTop="5px"
             android:textStyle="bold"
-            android:orientation="vertical"
+            android:text="본인 정보 변경"
+            android:textColor="@color/common_google_signin_btn_text_light"
+            android:textAlignment="viewStart"
+            android:background="#00ff0000"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/timeline_detail">
 
-            <TextView
-                android:id="@+id/delete"
+            <Button
+                android:id="@+id/logout_btn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="50px"
-                android:layout_marginTop="60px"
-                android:layout_marginLeft="40px"
+                android:layout_height="150px"
+                android:textSize="40px"
+                android:layout_marginTop="5px"
                 android:textStyle="bold"
+                android:text="로그아웃"
+                android:textColor="@color/common_google_signin_btn_text_light"
+                android:textAlignment="viewStart"
+                android:background="#00ff0000"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/timeline_detail">
+
+            <Button
+                android:id="@+id/delete_account_btn"
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:textSize="40px"
+                android:layout_marginTop="5px"
+                android:textStyle="bold"
+                android:text="계정삭제하기"
                 android:textColor="#BF4B4B"
-                android:text="계정 삭제하기" />
-
+                android:textAlignment="viewStart"
+                android:background="#00ff0000"/>
         </LinearLayout>
-
-
-        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

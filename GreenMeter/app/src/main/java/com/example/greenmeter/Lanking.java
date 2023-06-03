@@ -3,11 +3,14 @@ package com.example.greenmeter;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,27 +19,45 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.maps.SupportMapFragment;
+
 public class Lanking extends Fragment {
+    View view;
     int lank = 1;
-    LinearLayout MainLayout;
+    RelativeLayout LankingLayout;
+    LinearLayout itemContainer;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        LinearLayout MainLayout = new LinearLayout(getActivity());
-//        MainLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-//        MainLayout.setOrientation(LinearLayout.VERTICAL);
+//        LinearLayout LankingLayout = new LinearLayout(getActivity());
+//        LankingLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+//        LankingLayout.setOrientation(LinearLayout.VERTICAL);
 
-//        MainLayout.addView(createItem());
+//        LankingLayout.addView(createItem());
 
-        MainLayout = new LinearLayout(getActivity());
-        MainLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 2330));
-        MainLayout.setOrientation(LinearLayout.VERTICAL);
-        MainLayout.setPadding(0, 0, 0, 0);
+        view = inflater.inflate(R.layout.lanking, container, false);
+        LankingLayout = view.findViewById(R.id.lankingLayout);
+
+        ScrollView scrollView = new ScrollView(getContext());
+        scrollView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1860));
+
+        itemContainer = new LinearLayout(getContext());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(0, 140, 0, 0);
+        itemContainer.setLayoutParams(layoutParams);
+        itemContainer.setOrientation(LinearLayout.VERTICAL);
+
         addItem();
-        return MainLayout;
+        scrollView.addView(itemContainer);
+        LankingLayout.addView(scrollView);
+
+        return view;
     }
 
     public void addItem() {
-        MainLayout.addView(createItem());
+        for(int i = 0; i < 10; i++) {
+            LinearLayout itemLayout = createItem();
+            itemContainer.addView(itemLayout);
+        }
     }
 
     public LinearLayout createItem() {
@@ -44,7 +65,7 @@ public class Lanking extends Fragment {
         itemLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 260));
         itemLayout.setOrientation(LinearLayout.VERTICAL);
         itemLayout.setBackground(ContextCompat.getDrawable(this.getContext(), R.drawable.timeline_detail));
-        itemLayout.setPadding(0, 40, 0, 0);
+        itemLayout.setPadding(0, 20, 0, 0);
 
         LinearLayout itemHeader = new LinearLayout(this.getContext());
         itemHeader.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -73,7 +94,7 @@ public class Lanking extends Fragment {
 
         ImageButton imageButton = new ImageButton(this.getContext());
         LinearLayout.LayoutParams params4 = new LinearLayout.LayoutParams(60, 60);
-        params4.setMargins(540, 20, 0, 0);
+        params4.setMargins(540, 20, -100, 0);
         imageButton.setLayoutParams(params4);
         imageButton.setBackground(null);
         imageButton.setImageResource(R.drawable.arrow_forward_ios_fill0_wght400_grad0_opsz48);
@@ -117,78 +138,8 @@ public class Lanking extends Fragment {
         itemLayout.addView(itemHeader);
         itemLayout.addView(itemBody);
 
+        itemLayout.setId(View.generateViewId());
+
         return itemLayout;
     }
-
-//    public LinearLayout createItem() {
-//        LinearLayout itemLayout = new LinearLayout(this.getContext()); //수평 레이아웃 생성
-//        itemLayout.setOrientation(LinearLayout.VERTICAL); //수직 레이아웃 속성 설정
-//
-//        LinearLayout Header = createitemHeader();
-//        LinearLayout Body = createitembody();
-//
-//        itemLayout.addView(Header); //수평 레이아웃에 텍스트뷰 추가
-//        itemLayout.addView(Body); //수평 레이아웃에 텍스트뷰 추가
-//        return itemLayout;
-//    }
-//
-//    public LinearLayout createitemHeader() {
-//        LinearLayout itemHeader = new LinearLayout(this.getContext()); //수평 레이아웃 생성
-//        itemHeader.setOrientation(LinearLayout.HORIZONTAL); //수평 레이아웃 속성 설정
-//        itemHeader.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 150));
-//
-//        //Item Header Element
-//        TextView textLank = new TextView(this.getContext()); //텍스트뷰 생성
-//        TextView textName = new TextView(this.getContext()); //텍스트뷰 생성
-//        TextView textNamePlus = new TextView(this.getContext()); //텍스트뷰 생성
-//        ImageButton showDetailBtn = new ImageButton(this.getContext()); //이미지버튼 생성
-//
-//        textLank.setText(lank + "위"); //텍스트뷰에 텍스트 추가
-//        textLank.setTextColor(Color.parseColor("#FFD00C")); //텍스트뷰에 텍스트 색상 추가
-//        textLank.setTextSize(30);
-//        textLank.layout(40, 20, 0, 0);
-//        textLank.setLayoutParams(new LinearLayout.LayoutParams(130, ViewGroup.LayoutParams.WRAP_CONTENT));
-//
-//        textName.setText("김동규"); //텍스트뷰에 텍스트 추가
-//        textName.setTextSize(30);
-//        textName.setLayoutParams(new LinearLayout.LayoutParams(210, ViewGroup.LayoutParams.WRAP_CONTENT));
-//
-//        textNamePlus.setText("님"); //텍스트뷰에 텍스트 추가
-//
-//        showDetailBtn.setImageResource(R.drawable.arrow_forward_ios_fill0_wght400_grad0_opsz48); //이미지버튼에 이미지 추가
-//        showDetailBtn.setBackground(null); //이미지버튼 배경 삭제
-//        showDetailBtn.setLayoutParams(new LinearLayout.LayoutParams(60, 60));
-//        showDetailBtn.setLeft(540);
-//        showDetailBtn.setTop(40);
-//
-//        itemHeader.addView(textLank); //수평 레이아웃에 텍스트뷰 추가
-//        itemHeader.addView(textName); //수평 레이아웃에 텍스트뷰 추가
-//        itemHeader.addView(textNamePlus); //수평 레이아웃에 텍스트뷰 추가
-//        itemHeader.addView(showDetailBtn); //수평 레이아웃에 이미지버튼 추가
-//
-//        return itemHeader;
-//    }
-//
-//    public LinearLayout createitembody() {
-//        LinearLayout itemBody = new LinearLayout(this.getContext()); //수평 레이아웃 생성
-//        itemBody.setOrientation(LinearLayout.HORIZONTAL); //수평 레이아웃 속성 설정
-//        itemBody.setLayoutParams(new LinearLayout.LayoutParams(400, 150));
-//
-//        TextView carbonNUM = new TextView(this.getContext()); //텍스트뷰 생성
-//        TextView carbonUnit = new TextView(this.getContext()); //텍스트뷰 생성
-//
-//        carbonNUM.setLayoutParams(new LinearLayout.LayoutParams(120, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
-//
-//        carbonNUM.setText("11390");
-//        carbonNUM.setTextSize(60);
-//        carbonNUM.setLeft(40);
-//        carbonNUM.setTextColor(Color.parseColor("#FFD00C")); //텍스트뷰에 텍스트 색상 추가
-//
-//        carbonUnit.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
-//        carbonUnit.setText("g/km");
-//
-//        itemBody.addView(carbonNUM); //수평 레이아웃에 텍스트뷰 추가
-//        itemBody.addView(carbonUnit); //수평 레이아웃에 텍스트뷰 추가
-//        return itemBody;
-//    }
 }
