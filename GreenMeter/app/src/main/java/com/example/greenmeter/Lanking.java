@@ -3,63 +3,84 @@ package com.example.greenmeter;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.greenmeter.database.dbCommand;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class Lanking extends Fragment {
     View view;
-    int lank = 1;
     RelativeLayout LankingLayout;
     LinearLayout itemContainer;
+    private TextView usernameTextView, userlankTextView;
     private static DatabaseReference mDatabaseRef; //실시간 데이터베이스
 
 
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanㅅceState) {
         view = inflater.inflate(R.layout.lanking, container, false);
         LankingLayout = view.findViewById(R.id.lankingLayout);
 
         ScrollView scrollView = new ScrollView(getContext());
         scrollView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1860));
 
+        // 화면 세팅
         itemContainer = new LinearLayout(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(0, 140, 0, 0);
         itemContainer.setLayoutParams(layoutParams);
         itemContainer.setOrientation(LinearLayout.VERTICAL);
 
+        // 유저 랭킹 정보
+        usernameTextView = view.findViewById(R.id.lanking_myname);
+        userlankTextView = view.findViewById(R.id.lanking_myrank);
+        userlankTextView.setText("1");
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        dbCommand dbcommand = new dbCommand();
+        dbcommand.getNameFromDatabase(userId, new dbCommand.OnNameRetrievedListener() {
+            @Override
+            public void onNameRetrieved(String username) {
+                // 닉네임을 사용하여 TextView의 텍스트를 설정합니다.
+                usernameTextView.setText(username);
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                // 에러 처리를 수행합니다.
+                Log.e("Firebase", "Error: " + errorMessage);
+            }
+        });
+        
+        // 다른 유저 랭킹 정보 추가
         addItem();
         scrollView.addView(itemContainer);
         LankingLayout.addView(scrollView);
-
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("GreenMeter").child("UserAccount");
-
-
         return view;
     }
-
+    
     public void addItem() {
-        for(int i = 0; i < 10; i++) {
-            LinearLayout itemLayout = createItem();
+        String[] usernames = new String[]{"김동규", "황유림", "김태현", "김동민"};
+        String[] carbonValues = new String[]{"124.0", "134.0", "153.0", "185.0"};
+        
+        for(int i = 0; i < 4; i++) {
+            LinearLayout itemLayout = createItem(usernames[i], carbonValues[i], i+1);
             itemContainer.addView(itemLayout);
         }
     }
 
-    public LinearLayout createItem() {
+    public LinearLayout createItem(String username, String carbonValue, int lank) {
         LinearLayout itemLayout = new LinearLayout(this.getContext());
         itemLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 260));
         itemLayout.setOrientation(LinearLayout.VERTICAL);
@@ -76,7 +97,15 @@ public class Lanking extends Fragment {
         textView1.setLayoutParams(params1);
         textView1.setTextSize(23);
         textView1.setTypeface(null, Typeface.BOLD);
-        textView1.setTextColor(Color.parseColor("#FFCE00"));
+        if(lank == 1)
+            textView1.setTextColor(Color.parseColor("#FFDC4A"));
+        else if(lank == 2)
+            textView1.setTextColor(Color.parseColor("#DDDCD5"));
+        else if(lank == 3)
+            textView1.setTextColor(Color.parseColor("#CCB259"));
+        else
+            textView1.setTextColor(Color.parseColor("#78AFAF"));
+
         textView1.setText(lank+"위 ");
 
         TextView textView2 = new TextView(this.getContext());
@@ -84,32 +113,32 @@ public class Lanking extends Fragment {
         textView2.setLayoutParams(params2);
         textView2.setTextSize(23);
         textView2.setTypeface(null, Typeface.BOLD);
-        textView2.setText("뱅뱅숑");
+        textView2.setText(username);
 
         TextView textView3 = new TextView(this.getContext());
         LinearLayout.LayoutParams params3 = new LinearLayout.LayoutParams(50, LinearLayout.LayoutParams.WRAP_CONTENT);
         textView3.setLayoutParams(params3);
         textView3.setText(" 님");
 
-        ImageButton imageButton = new ImageButton(this.getContext());
-        LinearLayout.LayoutParams params4 = new LinearLayout.LayoutParams(60, 60);
-        params4.setMargins(540, 20, -100, 0);
-        imageButton.setLayoutParams(params4);
-        imageButton.setBackground(null);
-        imageButton.setImageResource(R.drawable.arrow_forward_ios_fill0_wght400_grad0_opsz48);
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "랭킹상세페이지 버튼이 눌림", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        ImageButton imageButton = new ImageButton(this.getContext());
+//        LinearLayout.LayoutParams params4 = new LinearLayout.LayoutParams(60, 60);
+//        params4.setMargins(540, 20, -100, 0);
+//        imageButton.setLayoutParams(params4);
+//        imageButton.setBackground(null);
+//        imageButton.setImageResource(R.drawable.arrow_forward_ios_fill0_wght400_grad0_opsz48);
+//        imageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getActivity(), "랭킹상세페이지 버튼이 눌림", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
 
 
         itemHeader.addView(textView1);
         itemHeader.addView(textView2);
         itemHeader.addView(textView3);
-        itemHeader.addView(imageButton);
+//        itemHeader.addView(imageButton);
 
         // 바디
         LinearLayout itemBody = new LinearLayout(this.getContext());
@@ -123,7 +152,7 @@ public class Lanking extends Fragment {
         textView4.setLayoutParams(params5);
         textView4.setTextSize(18);
         textView4.setTypeface(null, Typeface.BOLD);
-        textView4.setText("11,609");
+        textView4.setText(carbonValue);
 
         TextView textView5 = new TextView(this.getContext());
         LinearLayout.LayoutParams params6 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);

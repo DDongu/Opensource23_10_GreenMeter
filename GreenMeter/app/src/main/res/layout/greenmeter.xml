@@ -17,7 +17,7 @@
             android:layout_width="1080px"
             android:layout_height="120px"
             android:orientation="horizontal"
-            android:layout_marginTop="30px">
+            android:layout_marginTop="22px">
 
             <EditText
                 android:id="@+id/start_edit_text"
@@ -44,7 +44,7 @@
 
         <LinearLayout
             android:layout_width="1080px"
-            android:layout_height="140px"
+            android:layout_height="120px"
             android:orientation="horizontal">
             <EditText
                 android:id="@+id/destination_edit_text"
@@ -77,7 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_marginVertical="30px"
+            android:layout_marginVertical="20px"
             android:gravity="center">
 
             <Button
@@ -125,6 +125,16 @@
         android:layout_weight="30" />
 
     <include
+        android:id="@+id/search_btn"
+        layout="@layout/search_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_card"
+        android:background="@android:color/transparent"
+        android:layout_marginLeft="850px"
+        android:layout_marginBottom="20px"/>
+
+    <include
         layout="@layout/greenmeter_bottom_card"
         android:id="@+id/bottom_card"
         android:layout_width="match_parent"
@@ -132,6 +142,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="150px"
         android:background="@android:color/transparent"
-        android:gravity="center" />
+        android:gravity="center"/>
+
+
 
 </RelativeLayout>

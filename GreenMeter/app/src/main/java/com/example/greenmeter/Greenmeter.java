@@ -1,6 +1,7 @@
 package com.example.greenmeter;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Address;
@@ -76,7 +77,7 @@ public class Greenmeter extends Fragment implements OnMapReadyCallback {
     private TextView kmtextCar, kmtextMotorcycle, CO2textCar, CO2textMotorcycle;
     private Button carButton, transitButton;
     private ImageButton resetLocatonButton, swapLocationButton;
-    private String carName = "BMW_320d";
+    private String carName = "볼보_S90B5";
     private Double CO2num;
     private Double totalCO2;
 
@@ -171,6 +172,17 @@ public class Greenmeter extends Fragment implements OnMapReadyCallback {
                 String temp = startEditText.getText().toString();
                 startEditText.setText(destinationEditText.getText().toString());
                 destinationEditText.setText(temp);
+            }
+        });
+
+        Button searchCarButton = view.findViewById(R.id.search_car_btn);
+        // 클릭 리스너 설정
+        searchCarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // MainActivity로 이동하는 인텐트 생성
+                Intent intent = new Intent(getActivity(), CarListMain.class);
+                startActivity(intent);
             }
         });
 

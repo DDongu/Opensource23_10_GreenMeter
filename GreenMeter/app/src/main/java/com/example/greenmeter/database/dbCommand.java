@@ -87,7 +87,7 @@ public class dbCommand extends Application {
         void onFailure(String errorMessage);
     }
 
-    public void getNameFromDatabase(String userId, OnNicknameRetrievedListener listener) { // 새로 추가된 메서드
+    public void getNameFromDatabase(String userId, OnNameRetrievedListener listener) { // 새로 추가된 메서드
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("GreenMeter").child("UserAccount").child(userId);
         mDatabaseRef.child("username").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -97,7 +97,7 @@ public class dbCommand extends Application {
                     DataSnapshot dataSnapshot = task.getResult();
                     if (dataSnapshot.exists()) {
                         String username = dataSnapshot.getValue(String.class);
-                        listener.onNicknameRetrieved(username);
+                        listener.onNameRetrieved(username);
 
                     } else {
                         listener.onFailure("username not found");

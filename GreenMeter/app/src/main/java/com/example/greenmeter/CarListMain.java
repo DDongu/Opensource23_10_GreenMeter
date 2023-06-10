@@ -1,13 +1,16 @@
 package com.example.greenmeter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CarListMain extends AppCompatActivity {
@@ -25,19 +29,25 @@ public class CarListMain extends AppCompatActivity {
     private List<String> carTypeList;
     private EditText editTextSearch;
     private ListView listViewCarType;
+    private TextView textViewCarType;
+    private TextView textViewCarbonValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.car_list_main);
 
         // Firebase 데이터베이스의 "Transportation" 노드에 대한 참조를 가져옵니다.
         mDatabase = FirebaseDatabase.getInstance().getReference("Transportation");
 
-        View view = new View(this);
         // UI 요소 찾기
-        editTextSearch = view.findViewById(R.id.editTextSearch);
-        listViewCarType = view.findViewById(R.id.listViewCarType);
+        editTextSearch = findViewById(R.id.editTextSearch);
+        listViewCarType = findViewById(R.id.listViewCarType);
+        textViewCarType = findViewById(R.id.textViewCarInfo);
+        textViewCarbonValue = findViewById(R.id.textViewCarbonValue);
+
+        // 차종 목록 초기화
+        carTypeList = new ArrayList<>();
 
         // 차종 목록 어댑터 생성 및 설정
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, carTypeList);
@@ -66,6 +76,19 @@ public class CarListMain extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedCarType = carTypeList.get(position);
                 showCarbonValue(selectedCarType);
+            }
+        });
+
+        // 버튼 찾기
+        Button buttonRegister = findViewById(R.id.buttonRegister);
+
+        // 클릭 리스너 설정
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // MainActivity로 이동하는 인텐트 생성
+                Intent intent = new Intent(CarListMain.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -104,9 +127,11 @@ public class CarListMain extends AppCompatActivity {
 
                 if (carbonValue != null) {
                     String message = "차종: " + carType + "\n탄소값: " + carbonValue;
+                    textViewCarType.setText(carType);
+                    textViewCarbonValue.setText(String.valueOf(carbonValue));
                     // 탄소값을 원하는 방식으로 출력하거나 처리할 수 있습니다.
-                    // 예시로 텍스트뷰에 출력합니다.
-                    // textViewResult.setText(message);
+                    // 예시로 토스트 메시지로 출력합니다.
+
                 }
             }
 

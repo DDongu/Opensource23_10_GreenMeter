@@ -36,9 +36,9 @@ public class Mypage extends Fragment {
 
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         dbCommand dbcommand = new dbCommand();
-        dbcommand.getNameFromDatabase(userId, new dbCommand.OnNicknameRetrievedListener() {
+        dbcommand.getNameFromDatabase(userId, new dbCommand.OnNameRetrievedListener() {
             @Override
-            public void onNicknameRetrieved(String username) {
+            public void onNameRetrieved(String username) {
                 // 닉네임을 사용하여 TextView의 텍스트를 설정합니다.
                 usernameTextView.setText(username);
             }

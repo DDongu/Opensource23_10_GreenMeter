@@ -7,13 +7,14 @@
 
     <LinearLayout
         android:layout_width="500px"
-        android:layout_height="320px"
+        android:layout_height="340px"
+        android:layout_marginRight="30px"
         android:background="@drawable/timeline_summary_radius"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="500px"
-            android:layout_height="70px"
+            android:layout_height="80px"
             android:layout_marginTop="3px"
             android:orientation="horizontal">
 
@@ -29,9 +30,9 @@
                 android:textStyle="bold" />
 
             <ImageButton
-                android:id="@+id/imageView4"
-                android:layout_width="35px"
-                android:layout_height="35px"
+                android:id="@+id/timeline_detail_btn"
+                android:layout_width="40px"
+                android:layout_height="40px"
                 android:layout_marginTop="30px"
                 android:layout_marginLeft="100px"
                 app:srcCompat="@drawable/arrow_forward_ios_fill0_wght400_grad0_opsz48" />

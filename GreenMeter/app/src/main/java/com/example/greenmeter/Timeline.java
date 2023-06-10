@@ -11,23 +11,26 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.greenmeter.database.dbCommand;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.Priority;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -40,6 +43,8 @@ import java.util.List;
 
 
 public class Timeline extends Fragment implements OnMapReadyCallback, LocationListener {
+    private FragmentManager fm;
+    private FragmentTransaction ft;
     private FusedLocationProviderClient client;
     private LocationCallback locationCallback;
     private static final int PERMISSION_REQUEST_CODE = 1;
@@ -49,7 +54,7 @@ public class Timeline extends Fragment implements OnMapReadyCallback, LocationLi
     private FirebaseAuth mFirebaseAuth; //파이어베이스 인증
     private DatabaseReference mDatabaseRef; //실시간 데이터베이스
     private final int MIN_TIME = 2000;
-    private final int MIN_DISTANCE = 5; // 업데이하는 기준이동거리
+    private final int MIN_DISTANCE = 5; // 업데이트하는 기준이동거리
     private int zm = 14;
     private dbCommand dbcommand;
     private String userID;
@@ -57,6 +62,8 @@ public class Timeline extends Fragment implements OnMapReadyCallback, LocationLi
     private String carName = "BMW_320d";
     private List<LatLng> pathPoints; // List to store path points
     private LatLng currentLocation;
+    private ImageButton timelineDetailButton;
+    private TimelineDetail timelineDetail;
 
     @Nullable
     @Override
@@ -65,9 +72,8 @@ public class Timeline extends Fragment implements OnMapReadyCallback, LocationLi
         view = inflater.inflate(R.layout.timeline, container, false);
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        // Initialize the FusedLocationProviderClient
-//        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
 
+        // 위치 업데이트 요청
         client = LocationServices.getFusedLocationProviderClient(requireContext());
         locationCallback = new LocationCallback() {
             @Override
@@ -90,19 +96,43 @@ public class Timeline extends Fragment implements OnMapReadyCallback, LocationLi
 
         pathPoints = new ArrayList<>(); // Initialize pathPoints
 
+        timelineDetail = new TimelineDetail();
+        timelineDetailButton = view.findViewById(R.id.timeline_detail_btn);
+        fm = getFragmentManager();
+        ft = fm.beginTransaction();
+        timelineDetailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Replace the current fragment with the new fragment
+                ft.replace(R.id.main_frame, timelineDetail);
+
+                // Optional: Add the transaction to the back stack
+                ft.addToBackStack("TimelineMain");
+
+                // Commit the transaction
+                ft.commit();
+            }
+        });
+
         return view;
     }
 
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        // Add a marker in CBNU
-        LatLng myLocation = new LatLng(36.6283933, 127.459223);
+        // 초기 위치 설정
+        double initialLatitude = 36.6283933; // 사용자의 초기 위도 값
+        double initialLongitude = 127.459223; // 사용자의 초기 경도 값
+        float DEFAULT_ZOOM = 15.0f; // 지도의 초기 줌 레벨
 
-        mMap.addMarker(new MarkerOptions()
-                .position(myLocation)
-                .title("My Location"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, zm));
+        LatLng initialLocation = new LatLng(initialLatitude, initialLongitude);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialLocation, DEFAULT_ZOOM));
 
+        // 현재 위치 표시 설정 버튼
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+        }
+
+        startLocationUpdates();
     }
 
     @Override
@@ -119,21 +149,19 @@ public class Timeline extends Fragment implements OnMapReadyCallback, LocationLi
         stopLocationUpdates();
     }
 
-    private void checkPermission() {
-        if (ContextCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // Permission is not granted, request the permission
-            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST_CODE);
-        } else {
-            // Permission is granted, start location updates
-            startLocationUpdates();
-        }
-    }
-
     private void startLocationUpdates() {
+        LocationRequest locationRequest = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 100)
+                .setWaitForAccurateLocation(true)
+                .setMinUpdateIntervalMillis(2000)
+                .setMaxUpdateDelayMillis(100)
+                .setPriority(Priority.PRIORITY_HIGH_ACCURACY)
+                .build();
+
         if (ContextCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
         }
     }
+
 
     private void stopLocationUpdates() {
         locationManager.removeUpdates(this);
@@ -164,7 +192,7 @@ public class Timeline extends Fragment implements OnMapReadyCallback, LocationLi
             // Draw polyline connecting all the path points
             PolylineOptions polylineOptions = new PolylineOptions()
                     .color(Color.GREEN)
-                    .width(5)
+                    .width(10f)
                     .addAll(pathPoints);
             mMap.addPolyline(polylineOptions);
 
@@ -172,6 +200,4 @@ public class Timeline extends Fragment implements OnMapReadyCallback, LocationLi
             mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation));
         }
     }
-
-    // ... Rest of the code
 }
