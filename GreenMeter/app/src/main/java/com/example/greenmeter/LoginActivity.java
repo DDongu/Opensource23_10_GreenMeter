@@ -1,3 +1,8 @@
+/**
+ * 코드 작성자
+ * 황유림 - 전체 코드 작성
+ * */
+
 package com.example.greenmeter;
 
 import android.content.Intent;

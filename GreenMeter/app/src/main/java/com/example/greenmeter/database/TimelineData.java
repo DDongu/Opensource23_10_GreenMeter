@@ -1,3 +1,8 @@
+/**
+ * 코드 작성자
+ * 김동규 - 사용자 타임라인 실시간 위치 데어터 클래스 생성
+ * */
+
 package com.example.greenmeter.database;
 
 public class TimelineData {

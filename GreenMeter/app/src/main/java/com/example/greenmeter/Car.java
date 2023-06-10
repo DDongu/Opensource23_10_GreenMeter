@@ -1,3 +1,8 @@
+/**
+ * 코드 작성자
+ * 김동민 - 차종과 탄소배출량을 저장하는 클래스 생성
+ * */
+
 package com.example.greenmeter;
 
 public class Car {

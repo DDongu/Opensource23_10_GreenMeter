@@ -1,3 +1,9 @@
+/**
+ * 코드 작성자
+ * 김동규 - GetAutoIncrement, getTotalco2FromDatabase, getTotalkmFromDatabase, GetCO2num 함수 작성
+ * 김태현 - getNameFromDatabase, getNicknameFromDatabase 함수 작성
+ * */
+
 package com.example.greenmeter.database;
 
 import android.app.Application;
@@ -81,6 +87,59 @@ public class dbCommand extends Application {
         return String.valueOf(lastID+1);
     }
 
+    public interface OnTotalco2RetrievedListener { // 새로 추가된 인터페이스
+        void onTotalco2Retrieved(Double total_co2);
+        void onFailure(String errorMessage);
+    }
+    public void getTotalco2FromDatabase(String userId, OnTotalco2RetrievedListener listener) { // 새로 추가된 메서드
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("GreenMeter").child("UserAccount").child(userId);
+        mDatabaseRef.child("total_carbonEm").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DataSnapshot dataSnapshot = task.getResult();
+                    if (dataSnapshot.exists()) {
+                        Double total_co2 = dataSnapshot.getValue(Double.class);
+                        listener.onTotalco2Retrieved(total_co2);
+                    } else {
+                        listener.onFailure("co2 not found");
+                    }
+                } else {
+                    String errorMessage = task.getException().getMessage();
+                    Log.e("Firebase", "Error: " + errorMessage);
+                    listener.onFailure(errorMessage);
+                }
+            }
+        });
+    }
+
+    public interface OnTotalkmRetrievedListener { // 새로 추가된 인터페이스
+        void onTotalkmRetrieved(Double total_km);
+        void onFailure(String errorMessage);
+    }
+    public void getTotalkmFromDatabase(String userId, OnTotalkmRetrievedListener listener) { // 새로 추가된 메서드
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("GreenMeter").child("UserAccount").child(userId);
+        mDatabaseRef.child("total_distance").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DataSnapshot dataSnapshot = task.getResult();
+                    if (dataSnapshot.exists()) {
+                        Double total_km = dataSnapshot.getValue(Double.class);
+                        listener.onTotalkmRetrieved(total_km);
+                    } else {
+                        listener.onFailure("total_km not found");
+                    }
+                } else {
+                    String errorMessage = task.getException().getMessage();
+                    Log.e("Firebase", "Error: " + errorMessage);
+                    listener.onFailure(errorMessage);
+                }
+            }
+        });
+    }
 
     public interface OnNameRetrievedListener { // 새로 추가된 인터페이스
         void onNameRetrieved(String name);
@@ -127,8 +186,6 @@ public class dbCommand extends Application {
                     if (dataSnapshot.exists()) {
                         String nickname = dataSnapshot.getValue(String.class);
                         listener.onNicknameRetrieved(nickname);
-                        Log.d("ㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷ", "db 내의 nickname: " + nickname);
-
                     } else {
                         listener.onFailure("Nickname not found");
                     }
@@ -147,8 +204,6 @@ public class dbCommand extends Application {
     }
 
     public static void GetCO2num(String carName, CO2numCallback callback) {
-        Log.d("ㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷ", "GetCO2num 시작");
-
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Transportation");
         mDatabaseRef.child(carName).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -158,7 +213,6 @@ public class dbCommand extends Application {
                     if (dataSnapshot != null) {
                         Log.d("firebase", String.valueOf(dataSnapshot.getValue()));
                         Double CO2num = Double.parseDouble(String.valueOf(dataSnapshot.getValue()));
-                        Log.d("ㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷ", "db 내의 CO2num: " + CO2num);
                         callback.onCO2numRetrieved(CO2num);
                     }
                 } else {

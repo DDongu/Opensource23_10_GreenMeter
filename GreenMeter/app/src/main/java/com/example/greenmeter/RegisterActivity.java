@@ -1,3 +1,8 @@
+/**
+ * 코드 작성자
+ * 황유림 - 전체 코드 작성
+ * */
+
 package com.example.greenmeter;
 
 import android.content.Intent;
@@ -52,6 +57,10 @@ public class RegisterActivity extends AppCompatActivity {
                 String strUsername = mEtusername.getText().toString();
                 String strPh = mEtph.getText().toString();
                 String strNickname = mEtnickname.getText().toString();
+                Double carbonEm = 0.0;
+                Double total_distance = 0.0;
+                Double total_carbonEm = 0.0;
+                Double avg_carbonEm = 0.0;
 
                 //firebase Auth 진행
                 mFirebaseAuth.createUserWithEmailAndPassword(strEmail, strPwd).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
@@ -66,6 +75,10 @@ public class RegisterActivity extends AppCompatActivity {
                             account.setUsername(strUsername);
                             account.setPh(strPh);
                             account.setNickname(strNickname);
+                            account.setCarbonEm(carbonEm);
+                            account.setTotal_distance(total_distance);
+                            account.setTotal_carbonEm(total_carbonEm);
+                            account.setAvg_carbonEm(avg_carbonEm);
 
                             // setvalue : datebase에 inset(삽입) 입력
                             mDatabaseRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);

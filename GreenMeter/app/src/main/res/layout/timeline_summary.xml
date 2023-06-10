@@ -47,11 +47,11 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/co2_emission"
-                android:layout_width="230px"
+                android:id="@+id/day_co2"
+                android:layout_width="wrap_content"
                 android:layout_height="80px"
                 android:layout_marginLeft="20px"
-                android:text="3765.0"
+                android:text="0"
                 android:textSize="70px"
                 android:textStyle="bold" />
 
@@ -60,7 +60,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="g" />
+                android:layout_marginTop="10px"
+                android:text=" g" />
 
         </LinearLayout>
 
@@ -82,11 +83,11 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/car_km"
-                android:layout_width="80px"
-                android:layout_height="80px"
+                android:id="@+id/day_km"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="30px"
-                android:text="12"
+                android:text="0"
                 android:textSize="55px"
                 android:textStyle="bold" />
 
@@ -95,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="km" />
+                android:text=" km" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

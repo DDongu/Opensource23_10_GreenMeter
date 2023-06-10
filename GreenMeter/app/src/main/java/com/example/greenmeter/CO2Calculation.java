@@ -1,3 +1,8 @@
+/**
+ * 코드 작성자
+ * 김동민 - 전체 코드 작성
+ * */
+
 package com.example.greenmeter;
 
 import static android.content.ContentValues.TAG;

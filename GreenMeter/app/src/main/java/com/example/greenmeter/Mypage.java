@@ -1,8 +1,9 @@
-package com.example.greenmeter;
-
 /**
- * Mypage Main
- **/
+ * 코드 작성자
+ * 황유림 - 전체 코드 작성
+ * */
+
+package com.example.greenmeter;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,7 +24,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Mypage extends Fragment {
     private View view;
-    private FirebaseAuth authService;
+    private FirebaseAuth authService;;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -33,32 +35,40 @@ public class Mypage extends Fragment {
 
         TextView usernameTextView = view.findViewById(R.id.name_edit);
         TextView nicknameTextView = view.findViewById(R.id.nickname_edit);
+        TextView my_co2 = view.findViewById(R.id.my_co2);
 
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         dbCommand dbcommand = new dbCommand();
         dbcommand.getNameFromDatabase(userId, new dbCommand.OnNameRetrievedListener() {
             @Override
             public void onNameRetrieved(String username) {
-                // 닉네임을 사용하여 TextView의 텍스트를 설정합니다.
                 usernameTextView.setText(username);
             }
 
             @Override
             public void onFailure(String errorMessage) {
-                // 에러 처리를 수행합니다.
                 Log.e("Firebase", "Error: " + errorMessage);
             }
         });
         dbcommand.getNicknameFromDatabase(userId, new dbCommand.OnNicknameRetrievedListener() {
             @Override
             public void onNicknameRetrieved(String nickname) {
-                // 닉네임을 사용하여 TextView의 텍스트를 설정합니다.
                 nicknameTextView.setText(nickname);
             }
 
             @Override
             public void onFailure(String errorMessage) {
-                // 에러 처리를 수행합니다.
+                Log.e("Firebase", "Error: " + errorMessage);
+            }
+        });
+        dbcommand.getTotalco2FromDatabase(userId, new dbCommand.OnTotalco2RetrievedListener() {
+            @Override
+            public void onTotalco2Retrieved(Double totalco2) {
+                my_co2.setText(Double.toString(totalco2));
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
                 Log.e("Firebase", "Error: " + errorMessage);
             }
         });

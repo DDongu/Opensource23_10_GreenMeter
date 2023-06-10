@@ -1,8 +1,9 @@
-package com.example.greenmeter.database;
-
 /**
- * 사용자 계정 정보 모델 클래스
- */
+ * 코드 작성자
+ * 김동규 - 사용자 계정 정보 모델 클래스 생성
+ * */
+
+package com.example.greenmeter.database;
 
 public class UserAccount {
     private String idToken;         // Firebase Uid (고유 토큰정보)

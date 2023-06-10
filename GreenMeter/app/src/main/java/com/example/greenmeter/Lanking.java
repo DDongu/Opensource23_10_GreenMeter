@@ -1,3 +1,8 @@
+/**
+ * 코드 작성자
+ * 김동규 - 전체 코드 작성
+ * */
+
 package com.example.greenmeter;
 
 import android.graphics.Color;

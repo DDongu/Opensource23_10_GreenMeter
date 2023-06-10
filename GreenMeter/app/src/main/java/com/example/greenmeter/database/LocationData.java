@@ -1,3 +1,8 @@
+/**
+ * 코드 작성자
+ * 김동규 - 위치 데어터 클래스 생성
+ * */
+
 package com.example.greenmeter.database;
 
 public class LocationData {

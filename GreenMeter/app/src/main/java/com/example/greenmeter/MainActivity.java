@@ -1,7 +1,7 @@
-
-/*
-* 네비게이션바 Activity
-* */
+/**
+ * 코드 작성자
+ * 황유림 - 전체 코드 작성
+ * */
 
 package com.example.greenmeter;
 

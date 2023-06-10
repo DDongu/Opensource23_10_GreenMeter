@@ -35,7 +35,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="400px"
+        android:layout_height="360px"
         android:orientation="vertical"
         android:background="@drawable/timeline_detail">
 
@@ -64,25 +64,25 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="106dp"
-            android:layout_height="90px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10px"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/walk_co2"
-                android:layout_width="1px"
-                android:layout_height="80px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="70px"
                 android:layout_weight="1"
-                android:text="00"
-                android:textSize="70px"
+                android:text="0"
+                android:textSize="80px"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/walk_gkm_text"
-                android:layout_width="30px"
-                android:layout_height="26dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="g" />
 
@@ -98,8 +98,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="80px"
                 android:layout_marginLeft="70px"
-                android:layout_weight="1"
-                android:text="1"
+                android:layout_weight="0"
+                android:text="0"
                 android:textSize="50px"
                 android:textStyle="bold" />
 
@@ -111,29 +111,11 @@
                 android:text="km" />
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="350px"
-            android:layout_height="70px"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/walk_time"
-                android:layout_width="100px"
-                android:layout_height="60px"
-                android:layout_marginLeft="70px"
-                android:layout_weight="1"
-                android:text="0시간 23분"
-                android:textSize="40px"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="400px"
+        android:layout_height="360px"
         android:background="@drawable/timeline_detail"
         android:orientation="vertical">
 
@@ -163,18 +145,18 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="90px"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10px"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/car_co2"
                 android:layout_width="wrap_content"
-                android:layout_height="80px"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="70px"
                 android:layout_weight="1"
-                android:text="3765.0"
-                android:textSize="70px"
+                android:text="0"
+                android:textSize="80px"
                 android:textStyle="bold" />
 
             <TextView
@@ -197,7 +179,7 @@
                 android:layout_height="80px"
                 android:layout_marginLeft="70px"
                 android:layout_weight="1"
-                android:text="7"
+                android:text="0"
                 android:textSize="50px"
                 android:textStyle="bold" />
 
@@ -210,28 +192,11 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="350px"
-            android:layout_height="70px"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/car_time"
-                android:layout_width="100px"
-                android:layout_height="60px"
-                android:layout_marginLeft="70px"
-                android:layout_weight="1"
-                android:text="1시간 15분"
-                android:textSize="40px"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="400px"
+        android:layout_height="360px"
         android:orientation="vertical"
         android:background="@drawable/timeline_detail">
 
@@ -260,19 +225,19 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="106dp"
-            android:layout_height="90px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10px"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/moter_co2"
-                android:layout_width="1px"
-                android:layout_height="80px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="70px"
                 android:layout_weight="1"
-                android:text="00"
-                android:textSize="70px"
+                android:text="0"
+                android:textSize="80px"
                 android:textStyle="bold" />
 
             <TextView
@@ -295,7 +260,7 @@
                 android:layout_height="80px"
                 android:layout_marginLeft="70px"
                 android:layout_weight="1"
-                android:text="4"
+                android:text="0"
                 android:textSize="50px"
                 android:textStyle="bold" />
 
@@ -307,24 +272,6 @@
                 android:text=" km" />
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="350px"
-            android:layout_height="70px"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/moter_time"
-                android:layout_width="100px"
-                android:layout_height="60px"
-                android:layout_marginLeft="70px"
-                android:layout_weight="1"
-                android:text="0시간 12분"
-                android:textSize="40px"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
     </LinearLayout>
 
 </LinearLayout>

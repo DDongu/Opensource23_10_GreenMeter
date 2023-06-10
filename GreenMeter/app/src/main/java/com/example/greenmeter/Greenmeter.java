@@ -1,3 +1,9 @@
+/**
+ * 코드 작성자
+ * 김동민 - 초기 맵 설정 및 전반적인 주요 기능 함수 작성
+ * 김동규 - 오류 코드 수정 및 경로 거리 구하는 함수 작성
+ * */
+
 package com.example.greenmeter;
 
 import android.Manifest;

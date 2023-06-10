@@ -57,7 +57,7 @@
                     android:textStyle="bold"
                     android:textSize="60px"
                     android:layout_marginTop="90px"
-                    android:text="이름" />
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/nickname_edit"
@@ -66,7 +66,7 @@
                     android:textStyle="bold"
                     android:textSize="40px"
                     android:layout_marginTop="10px"
-                    android:text="닉네임" />
+                    android:text="" />
             </LinearLayout>
 
         </LinearLayout>
@@ -107,7 +107,7 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:textSize="50px"
-                        android:text="3765.0" />
+                        android:text="0" />
 
                     <TextView
                         android:id="@+id/my_gkm_text"
