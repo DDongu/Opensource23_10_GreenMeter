@@ -1,19 +1,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="550px"
-    android:layout_height="700px"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="500px"
+        android:layout_height="320px"
         android:background="@drawable/timeline_summary_radius"
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="550px"
-            android:layout_height="90px"
+            android:layout_width="500px"
+            android:layout_height="70px"
+            android:layout_marginTop="3px"
             android:orientation="horizontal">
 
             <TextView
@@ -27,28 +28,29 @@
                 android:textSize="35px"
                 android:textStyle="bold" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35px"
+                android:layout_height="35px"
                 android:layout_marginTop="30px"
-                android:layout_marginLeft="140px"
+                android:layout_marginLeft="100px"
                 app:srcCompat="@drawable/arrow_forward_ios_fill0_wght400_grad0_opsz48" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100px"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10px"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/co2_emission"
                 android:layout_width="230px"
                 android:layout_height="80px"
                 android:layout_marginLeft="20px"
-                android:text="11,659"
+                android:text="3765.0"
                 android:textSize="70px"
                 android:textStyle="bold" />
 
@@ -57,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="g/km" />
+                android:text="g" />
 
         </LinearLayout>
 
@@ -66,8 +68,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30px"
-            android:layout_marginTop="15px"
-            android:text="하루 누적 거리,시간"
+            android:layout_marginTop="30px"
+            android:text="하루 누적 거리"
             android:textColor="#78AFAF"
             android:textSize="35px"
             android:textStyle="bold" />
@@ -75,14 +77,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="80px"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/car_km"
                 android:layout_width="80px"
                 android:layout_height="80px"
                 android:layout_marginLeft="30px"
-                android:text="18"
+                android:text="12"
                 android:textSize="55px"
                 android:textStyle="bold" />
 
@@ -93,14 +96,5 @@
                 android:layout_weight="1"
                 android:text="km" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30px"
-            android:text="6시간 50분"
-            android:textSize="30px" />
-
     </LinearLayout>
 </LinearLayout>

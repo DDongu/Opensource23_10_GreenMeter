@@ -3,7 +3,6 @@ package com.example.greenmeter;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,21 +18,18 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.gms.maps.SupportMapFragment;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Lanking extends Fragment {
     View view;
     int lank = 1;
     RelativeLayout LankingLayout;
     LinearLayout itemContainer;
+    private static DatabaseReference mDatabaseRef; //실시간 데이터베이스
+
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        LinearLayout LankingLayout = new LinearLayout(getActivity());
-//        LankingLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-//        LankingLayout.setOrientation(LinearLayout.VERTICAL);
-
-//        LankingLayout.addView(createItem());
-
         view = inflater.inflate(R.layout.lanking, container, false);
         LankingLayout = view.findViewById(R.id.lankingLayout);
 
@@ -49,6 +45,9 @@ public class Lanking extends Fragment {
         addItem();
         scrollView.addView(itemContainer);
         LankingLayout.addView(scrollView);
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("GreenMeter").child("UserAccount");
+
 
         return view;
     }

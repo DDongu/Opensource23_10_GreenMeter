@@ -75,7 +75,7 @@
             android:backgroundTint="#78AFAF"
             android:text="로그인"
             android:textColor="#FFFFFF"
-            android:layout_marginTop="50px"
+            android:layout_marginTop="30px"
             android:textSize="40px"
             tools:layout_editor_absoluteX="24dp"
             tools:layout_editor_absoluteY="402dp" />
@@ -85,7 +85,7 @@
         android:layout_width="600px"
         android:layout_height="100px"
         android:orientation="horizontal"
-        android:layout_marginTop="400px"
+        android:layout_marginTop="300px"
         android:layout_gravity="center">
 
         <TextView

@@ -3,6 +3,10 @@ package com.example.greenmeter.database;
 import android.app.Application;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -14,15 +18,17 @@ import com.google.firebase.database.ValueEventListener;
 
 public class dbCommand extends Application {
     // Get a reference to the Firebase Realtime Database
-    private DatabaseReference mDatabaseRef; //실시간 데이터베이스
+    private static DatabaseReference mDatabaseRef; //실시간 데이터베이스
     private FirebaseUser user;
     private int lastID;
     private String idToken;
+    private Double CO2num;
 
     @Override
     public void onCreate() {
         super.onCreate();
         FirebaseApp.initializeApp(this);
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference();
     }
 
     public String GetAutoIncrement(String node) {
@@ -74,27 +80,92 @@ public class dbCommand extends Application {
 
         return String.valueOf(lastID+1);
     }
-//
-//    public String getCurrentUserToken() {
-//        user = FirebaseAuth.getInstance().getCurrentUser();
-//        if(user != null) {
-//            Toast.makeText(this, "로그인부터 하세요", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(this, LoginActivity.class);
-//            startActivity(intent);
-//        } else {
-//            Toast.makeText(this, "DEBUG: 사용자 정보 가져오기 성공!", Toast.LENGTH_SHORT).show();
-//        }
-//
-//        user.getIdToken(true).addOnCompleteListener(task -> {
-//            if (task.isSuccessful()) {
-//                idToken = task.getResult().getToken();
-//                Toast.makeText(this, "DEBUG: 토큰 가져오기 성공! " + idToken, Toast.LENGTH_SHORT).show();
-//            } else {
-//                Toast.makeText(this, "DEBUG: 토큰 가져오기 실패!", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        return idToken;
-//    }
 
+
+    public interface OnNameRetrievedListener { // 새로 추가된 인터페이스
+        void onNameRetrieved(String name);
+        void onFailure(String errorMessage);
+    }
+
+    public void getNameFromDatabase(String userId, OnNicknameRetrievedListener listener) { // 새로 추가된 메서드
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("GreenMeter").child("UserAccount").child(userId);
+        mDatabaseRef.child("username").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DataSnapshot dataSnapshot = task.getResult();
+                    if (dataSnapshot.exists()) {
+                        String username = dataSnapshot.getValue(String.class);
+                        listener.onNicknameRetrieved(username);
+
+                    } else {
+                        listener.onFailure("username not found");
+                    }
+                } else {
+                    String errorMessage = task.getException().getMessage();
+                    Log.e("Firebase", "Error: " + errorMessage);
+                    listener.onFailure(errorMessage);
+                }
+            }
+        });
+    }
+
+    public interface OnNicknameRetrievedListener { // 새로 추가된 인터페이스
+        void onNicknameRetrieved(String nickname);
+        void onFailure(String errorMessage);
+    }
+
+    public void getNicknameFromDatabase(String userId, OnNicknameRetrievedListener listener) { // 새로 추가된 메서드
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("GreenMeter").child("UserAccount").child(userId);
+        mDatabaseRef.child("nickname").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DataSnapshot dataSnapshot = task.getResult();
+                    if (dataSnapshot.exists()) {
+                        String nickname = dataSnapshot.getValue(String.class);
+                        listener.onNicknameRetrieved(nickname);
+                        Log.d("ㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷ", "db 내의 nickname: " + nickname);
+
+                    } else {
+                        listener.onFailure("Nickname not found");
+                    }
+                } else {
+                    String errorMessage = task.getException().getMessage();
+                    Log.e("Firebase", "Error: " + errorMessage);
+                    listener.onFailure(errorMessage);
+                }
+            }
+        });
+    }
+
+    public interface CO2numCallback {
+        void onCO2numRetrieved(Double CO2num);
+        void onFailure(String errorMessage);
+    }
+
+    public static void GetCO2num(String carName, CO2numCallback callback) {
+        Log.d("ㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷ", "GetCO2num 시작");
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Transportation");
+        mDatabaseRef.child(carName).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DataSnapshot dataSnapshot = task.getResult();
+                    if (dataSnapshot != null) {
+                        Log.d("firebase", String.valueOf(dataSnapshot.getValue()));
+                        Double CO2num = Double.parseDouble(String.valueOf(dataSnapshot.getValue()));
+                        Log.d("ㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷ", "db 내의 CO2num: " + CO2num);
+                        callback.onCO2numRetrieved(CO2num);
+                    }
+                } else {
+                    Log.e("firebase", "Error getting data", task.getException());
+                    callback.onFailure("Error getting data");
+                }
+            }
+        });
+    }
 }

@@ -38,7 +38,7 @@
                 android:layout_height="230px"
                 android:layout_marginLeft="100px"
                 android:layout_marginTop="60px"
-                android:src="@drawable/yurim"
+                android:src="@drawable/user"
                 app:civ_border_color="#E5E5E6"
                 app:civ_border_overlay="true"
                 app:civ_border_width="2dp" />
@@ -59,7 +59,7 @@
                     android:text="이름" />
 
                 <TextView
-                    android:id="@+id/nikname_edit"
+                    android:id="@+id/nickname_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -106,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:textSize="45px"
-                        android:text="00" />
+                        android:text="3765.0" />
 
                     <TextView
                         android:id="@+id/my_gkm_text"
@@ -149,7 +149,7 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:textSize="45px"
-                        android:text="00" />
+                        android:text="1" />
 
                     <TextView
                         android:id="@+id/text1"
@@ -207,7 +207,7 @@
                 android:textSize="40px"
                 android:layout_marginTop="5px"
                 android:textStyle="bold"
-                android:text="계정삭제하기"
+                android:text="계정탈퇴"
                 android:textColor="#BF4B4B"
                 android:textAlignment="viewStart"
                 android:background="#00ff0000"/>

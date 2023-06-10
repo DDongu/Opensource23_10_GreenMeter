@@ -1,13 +1,13 @@
 package com.example.greenmeter.database;
 
 public class Transportation {
-    private String type_trans;
-    private Double carbonEm;
+    private String carName;
 
-    public void setType_trans(String type_trans) {
-        this.type_trans = type_trans;
+    public String getCarName() {
+        return carName;
     }
-    public void setCarbonEm(Double carbonEm) {
-        this.carbonEm = carbonEm;
+
+    public void setCarName(String carName) {
+        this.carName = carName;
     }
 }

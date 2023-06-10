@@ -1,43 +1,137 @@
 <!-- greenmeter.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-
-    <!-- 경로 표시 버튼 -->
-
-    <!-- 경로 텍스트뷰 -->
-
-    <EditText
-        android:id="@+id/destination_edit_text"
-        android:layout_width="match_parent"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="목적지를 입력하세요" />
+        android:id="@+id/greenmeter_headerLayout"
+        android:layout_width="1080px"
+        android:background="#ffffff"
+        android:elevation="10dp"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/show_route_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="경로 보기" />
+        <LinearLayout
+            android:layout_width="1080px"
+            android:layout_height="120px"
+            android:orientation="horizontal"
+            android:layout_marginTop="30px">
 
-    <TextView
-        android:id="@+id/route_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_weight="1"
-        android:textAppearance="?android:textAppearanceMedium" />
+            <EditText
+                android:id="@+id/start_edit_text"
+                android:layout_width="900px"
+                android:layout_height="110px"
+                android:layout_marginLeft="50px"
+                android:background="#F2F2F2"
+                android:hint="출발지를 입력하시오"
+                android:inputType="textEmailAddress"
+                android:padding="30px"
+                android:textSize="40px"
+                tools:layout_editor_absoluteX="24dp"
+                tools:layout_editor_absoluteY="278dp" />
+
+            <ImageButton
+                android:id="@+id/reset_location_button"
+                android:layout_width="60px"
+                android:layout_height="110px"
+                android:background="#00FF0000"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/close_fill0_wght400_grad0_opsz48" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="1080px"
+            android:layout_height="140px"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/destination_edit_text"
+                android:layout_width="900px"
+                android:layout_height="110px"
+                android:background="#F2F2F2"
+                android:hint="도착지를 입력하시오"
+                android:inputType="textEmailAddress"
+                android:padding="30px"
+                android:textSize="40px"
+                android:layout_marginLeft="50px"
+                android:layout_marginTop="10px"
+                tools:layout_editor_absoluteX="24dp"
+                tools:layout_editor_absoluteY="278dp" />
+
+            <ImageButton
+                android:id="@+id/swap_location_button"
+                android:layout_width="60px"
+                android:layout_height="110px"
+                android:background="#00FF0000"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:padding="11dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/swap" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginVertical="30px"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/car_button"
+                android:drawableBottom="@drawable/carblackxml"
+                android:layout_width="480px"
+                android:layout_height="110px"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20px"
+                android:textColor="#ffffff"
+                android:textSize="45px"
+                android:textAllCaps="false"
+                android:background="@android:color/transparent"
+                android:paddingBottom="3dp" />
+
+            <Button
+                android:id="@+id/transit_button"
+                android:drawableBottom="@drawable/motorcycleblackxml"
+                android:layout_width="480px"
+                android:layout_height="110px"
+                android:layout_marginHorizontal="20px"
+                android:layout_gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="45px"
+                android:textAllCaps="false"
+                android:background="@android:color/transparent"
+                android:paddingBottom="3dp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
     <!-- 지도 뷰 -->
 
     <!-- 목적지 입력 -->
+
     <com.google.android.gms.maps.MapView
         android:id="@+id/map_view"
         android:layout_width="match_parent"
-        android:layout_height="590dp"
+        android:layout_height="380dp"
+        android:layout_below="@+id/greenmeter_headerLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="0dp"
         android:layout_weight="30" />
 
-</LinearLayout>
+    <include
+        layout="@layout/greenmeter_bottom_card"
+        android:id="@+id/bottom_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150px"
+        android:background="@android:color/transparent"
+        android:gravity="center" />
+
+</RelativeLayout>

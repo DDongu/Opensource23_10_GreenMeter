@@ -22,9 +22,9 @@
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="80px"
-                android:layout_height="85px"
-                android:layout_marginTop="30px"
+                android:layout_height="27dp"
                 android:layout_marginLeft="20px"
+                android:layout_marginTop="30px"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/search_img" />
 
